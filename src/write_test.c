@@ -1,8 +1,31 @@
-/**********************************************
- * Program for Generating Test Files Using
- * The CUnit Library
+/**************************************************************************************
+ * Connor Reed (cbreed2@ncsu.edu)
+ * 
+ * This file is part of the CUnit Library.
+ *  
+ * The CUnit Library is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
+
+ *  The CUnit Library is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+
+ *   You should have received a copy of the GNU General Public License
+ *   along with the CUnit Library.  If not, see <http://www.gnu.org/licenses/>.
+ * 
+ *  Copyright 2012
  *
- *********************************************/
+ * The CUnit Library is meant to be a JUnit-like framework
+ *   for C programs. 
+ * The write_test program generates test files (test_filename.c) from existing C files
+ * and updates a Makefile to facilitate automated compilation.
+ *
+ * Version 0.5: Beta Stage 1
+ *
+ **************************************************************************************/
  
  #include <stdio.h>
  #include <stdlib.h>
@@ -10,7 +33,7 @@
  #include <stdbool.h>
  #include <dirent.h> 
  
- #define VERSION 0.01
+ #define VERSION 0.5
  #define COMMENT_BLOCK_WIDTH 56
 void write_testfile(char* filename)
 {

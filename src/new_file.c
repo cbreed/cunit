@@ -1,15 +1,40 @@
-/*****************************************
+/**************************************************************************************
  * Connor Reed (cbreed2@ncsu.edu)
- * January 9, 2013
- * Creates a Standard Header for a C file.
- * Version: 2.5.1
- ****************************************/
+ * 
+ * This file is part of the CUnit Library.
+ *  
+ * The CUnit Library is free software: you can redistribute it and/or modify
+ *   it under the terms of the GNU General Public License as published by
+ *   the Free Software Foundation, either version 3 of the License, or
+ *   (at your option) any later version.
+
+ *  The CUnit Library is distributed in the hope that it will be useful,
+ *   but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *   GNU General Public License for more details.
+
+ *   You should have received a copy of the GNU General Public License
+ *   along with the CUnit Library.  If not, see <http://www.gnu.org/licenses/>.
+ * 
+ *   Copyright 2012
+ *
+ * The CUnit Library is meant to be a JUnit-like framework
+ *   for C programs. 
+ * 
+ * The new_file program creates a standard header for a C file. Although it is
+ *   not strictly part of the CUnit library, it does faciliate the creation of
+ *   test files along with new files. If you have an existing C file and just 
+ *   want to generate a test, use the write_test program instead.
+ * Version 0.5: Beta Stage 1 (Previously Version 2.5.1 - January 9, 2013)
+ *
+ **************************************************************************************/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <dirent.h> 
 
-#define VERSION 2.5
+#define VERSION 0.5
 #define COMMENT_BLOCK_WIDTH 56
 
 #if GEN_MAKEFILE
