@@ -10,6 +10,11 @@ cunit.o: src/cunit.c
 clean: 
 	rm lib/* bin/*
 install:
-	cp new_file write_test ~/bin
-	cp libcunit.so cunit.h ~/lib
+	cp bin/new_file bin/write_test ~/bin
+	cp lib/libcunit.so src/cunit.h ~/lib
 
+test: 
+
+
+clean:
+	rm -f *.o
