@@ -9,12 +9,9 @@ cunit.o: src/cunit.c
 	gcc -c -fPIC src/cunit.c -o lib/cunit.o 
 clean: 
 	rm lib/* bin/*
+	rm -f *.o
 install:
 	cp bin/new_file bin/write_test ~/bin
 	cp lib/libcunit.so src/cunit.h ~/lib
 
-test: 
-
-
-clean:
-	rm -f *.o
+	

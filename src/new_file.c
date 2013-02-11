@@ -192,7 +192,7 @@ int main(int argc, char** argv)
 	}
 		
 #if GEN_MAKEFILE
-	write_makefile();
+	write_makefile(filename);
 #endif
 
 #if USE_VI
@@ -212,12 +212,13 @@ int main(int argc, char** argv)
 }	
 
 #if GEN_MAKEFILE
-void write_makefile()
+void write_makefile(char* filename)
 {
 	char makecmd[1024] = {};
 	char objname[256] = {};
 	char** files = (char**) malloc(sizeof(char*) * 256); //MAJOR TODO. Need to count files. Buffer overflow possible.
 	int i = 0;
+	
 	DIR* dir;
 	struct dirent* ent;
 	dir = opendir("./");
@@ -376,10 +377,10 @@ void write_makefile()
 			memset(objname, '\0', sizeof(objname));
 		
 
-			write_testfile(files[j]);
+			
 
 		}
-	
+	  write_testfile(filename);
 		fputs("\n", make);
 	}
 	
