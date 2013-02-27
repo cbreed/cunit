@@ -42,24 +42,15 @@ void write_testfile(char* filename)
   memset(buf, '\0', sizeof(buf));
   strcat(buf, "test_");
   strcat(buf, filename);
+
+  FILE* check = fopen(buf, "r");
+  if(check != NULL)
+  {
+    fclose(check);
+    printf("Not writing test for %s Testfile exists.\n", filename);
+    return;
+  }
   
-  DIR* dir;
-	struct dirent* ent;
-	dir = opendir("./");
-	if(dir != NULL)
-	{
-		while((ent = readdir(dir)) != NULL)
-		{
-			//printf("Found: %s\n", ent->d_name);			
-			char* ext = strrchr(ent->d_name, '.');
-			//printf("ext = %s\n", ext);			
-			if(ext != NULL && strcmp(ext, ".c") == 0 && strcmp(ent->d_name, buf) == 0)
-			{	
-				printf("Ignoring File: %s\n", ent->d_name);
-				return; //Ignore existing test_* files
-			}
-		}
-	}
   FILE* test = fopen(buf, "w+");
   
   fputs("/**", test);
@@ -103,18 +94,25 @@ void write_makefile(char** filelist)
 	  {
 		  while((ent = readdir(dir)) != NULL && i < 256)
 		  {			
-			  char* ext = strrchr(ent->d_name, '.');			
-			  if(ext != NULL && strcmp(ext, ".c") == 0 && strcspn(ent->d_name, "test_") == strlen(ent->d_name) && i < 256)
+			  char* ext = strrchr(ent->d_name, '.');
+			  //strcspn(ent->d_name, "test_") == strlen(ent->d_name) && 			
+			  if(ext != NULL && strcmp(ext, ".c") == 0 && i < 256)
 			  {					
-				  files[i++] = ent->d_name;
+				  if(strncmp(ent->d_name, "test_", 5) == 0)
+				  {
+				    printf("File Ignored: %s\n", ent->d_name);
+				    continue;
+				  } 
+				  else
+				    files[i++] = ent->d_name;
 			  }
 		  }
 	  }
 	  if(i > 1)
 	  {	
-		  printf("Found the Following C Files:\n");
+		  printf("\nFound the Following C Files:\n");
 		  for(int j = 0; j < i; j++) 
-			  printf("%s\n", files[j]);
+			  printf("\t%s\n", files[j]);
 	  }
 	}
 	
@@ -281,12 +279,14 @@ int main(int argc, char** argv)
       files[j] = NULL; //Null-terminate the list
     }
     
-   
-    if(strcmp(argv[1], "-v") == 0)
+    else if(strcmp(argv[1], "-v") == 0)
       printf("Version %f\n", VERSION);
       
-    if(strcmp(argv[1], "-h") == 0)
+    else
+    {
       printf("Usage: write_test [-v | -h ] [-l <file1, file2,...> ] \n");
+      exit(1);
+    }
   }
   
   if(files != NULL)
