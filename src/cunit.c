@@ -32,7 +32,6 @@ int g_counter = 0;
 
 struct Node
 {
-  struct Node* prev;
   void* expected;
   void* actual;
   enum dataType type;
@@ -46,18 +45,14 @@ struct Node
 struct Node* head = NULL;
 
 
-void _dump_node(struct Node* n)
+static void _dump_node(struct Node* n)
 {
   
   printf("\tTest \"%s\": %s\n", n->test_name, n->pass ? "Pass" : "Fail");
   if(!n->pass)
   {
     if(n->type == type_int)
-    {
-      int* e = (int*) n->expected;
-      int* a = (int*) n->actual;
-      printf("\t\tExpected %d but got %d\n", *e, *a);
-    } 
+      printf("\t\tExpected %d but got %d\n", *((int*)n->expected), *(int*) n->actual);
       
     if(n->type == type_double)
       printf("\t\tExpected %f but got %f\n", *(double*)n->expected, *(double*)n->actual); 
@@ -70,11 +65,12 @@ void _dump_node(struct Node* n)
   }
 }
 
-void _dump_list(bool verbose)
+static void _dump_list(bool verbose)
 {
   bool allpass = true;
   printf("Results: \n");
   struct Node* temp = head;
+  struct Node* next = NULL;
   while(temp != NULL)
   {
     if(verbose)
@@ -94,14 +90,15 @@ void _dump_list(bool verbose)
     }
     free(temp->expected);
     free(temp->actual);
+    next = temp->next;
     free(temp);
-    temp = temp->next;
+    temp = next;
   }
   if(allpass)
-    printf("All tests passed.\n");
+    printf("\tAll tests passed.\n");
 }
 
-void _add(struct Node* new)
+static void _add(struct Node* new)
 {
   if(new->next != NULL)
   {
@@ -111,7 +108,7 @@ void _add(struct Node* new)
   
   if(head ==  NULL)
   {
-    //Add the new Node t othe head if it's empty.
+    //Add the new Node to the head if it's empty.
     head = new;
     return;
   }   
@@ -123,7 +120,6 @@ void _add(struct Node* new)
   }
   
   temp->next = new;
-  temp->prev = temp;
 
 }
 
@@ -231,10 +227,8 @@ bool assertEqualsInt(int expected, int actual, char* testname)
   if(value)
     return value;
   else
-  {
-    //printf("Test \"%s\" Failed. Expected: %d, but got: %d\n", testname, expected, actual);
     return false;
-  }
+  
 }
 
 bool assertEqualsDouble(double expected, double actual, char* testname)
@@ -250,10 +244,7 @@ bool assertEqualsDouble(double expected, double actual, char* testname)
   if(value)
     return value;
   else
-  {
-    //printf("Test \"%s\" Failed. Expected: %lf, but got: %lf\n", testname, expected, actual);
     return false;
-  }
 }
 
 bool assertEqualsChar(char expected, char actual, char* testname)
@@ -271,10 +262,7 @@ bool assertEqualsChar(char expected, char actual, char* testname)
   if(value)
     return value;
   else
-  {
-    //printf("Test \"%s\" Failed. Expected: %c, but got: %c\n", testname, expected, actual);
     return false;
-  }
 }
 
 bool assertEqualsCharP(char* expected, char* actual, char* testname)
@@ -289,10 +277,7 @@ bool assertEqualsCharP(char* expected, char* actual, char* testname)
   if(value)
     return value;
   else
-  {
-    //printf("Test \"%s\" Failed. Expected: %s, but got: %s\n", testname, expected, actual);
     return false;
-  }
 }
 
 

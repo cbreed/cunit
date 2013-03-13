@@ -35,6 +35,7 @@
  
  #define VERSION 0.5
  #define COMMENT_BLOCK_WIDTH 56
+  
 void write_testfile(char* filename)
 {
 
