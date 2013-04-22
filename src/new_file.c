@@ -226,12 +226,12 @@ void write_makefile(char* filename)
 	{
 		while((ent = readdir(dir)) != NULL && i < 256)
 		{
-			//printf("Found: %s\n", ent->d_name);			
+			printf("Found: %s\n", ent->d_name);			
 			char* ext = strrchr(ent->d_name, '.');
-			//printf("ext = %s\n", ext);			
-			if(ext != NULL && strcmp(ext, ".c") == 0 && strcspn(ent->d_name, "test_") >= 5 && i < 256)
+			printf("ext = %s\n", ext);			
+			if(ext != NULL && strcmp(ext, ".c") == 0 && strncmp(ent->d_name, "test_", 5) != 0 && i < 256)
 			{	
-				//printf("Found C File: %s\n", ent->d_name);				
+				printf("Found C File: %s\n", ent->d_name);				
 				files[i++] = ent->d_name;
 			}
 		}
