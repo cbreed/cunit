@@ -1,5 +1,6 @@
 #!/usr/bin/perl
-
+#Credit for this file goes to James Blew (jhblew@ncsu.edu).
+# Contact him with questions.
 #All types to match.  >>>MUST BE USER-DEFINED<<<
 @types=('int','void','float','bool','long','double','char');
 
