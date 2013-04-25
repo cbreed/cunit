@@ -1,3 +1,8 @@
+/*!
+ *  \file Header File
+ *  \brief Header File
+ *  More.
+ */
 /**************************************************************************************
  * Connor Reed (cbreed2@ncsu.edu)
  * 
@@ -20,7 +25,7 @@
  *
  * The CUnit Library is meant to be a JUnit-like framework
  *   for C programs. 
- * Version 0.5: Beta Stage 1
+ * Version 0.6: Beta Stage 2
  *
  **************************************************************************************/
  
@@ -42,5 +47,6 @@
   extern bool assertEqualsDouble(double expected, double actual, char* testname);
   extern bool assertEqualsChar(char expected, char actual, char* testname);
   extern bool assertEqualsCharP(char* expected, char* actual, char* testname);
-  void printResults(bool verbose);
+  extern void printResults(bool verbose);
+  extern int* end_test(int* num_elements, int* allpass);
 #endif

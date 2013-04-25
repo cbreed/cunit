@@ -25,7 +25,7 @@
  *   not strictly part of the CUnit library, it does faciliate the creation of
  *   test files along with new files. If you have an existing C file and just 
  *   want to generate a test, use the write_test program instead.
- * Version 0.5: Beta Stage 1 (Previously Version 2.5.1 - January 9, 2013)
+ * Version 0.6: Beta Stage 2 (Previously Version 2.5.1 - January 9, 2013)
  *
  **************************************************************************************/
 
@@ -226,9 +226,9 @@ void write_makefile(char* filename)
 	{
 		while((ent = readdir(dir)) != NULL && i < 256)
 		{
-			printf("Found: %s\n", ent->d_name);			
+			//printf("Found: %s\n", ent->d_name);			
 			char* ext = strrchr(ent->d_name, '.');
-			printf("ext = %s\n", ext);			
+			//printf("ext = %s\n", ext);			
 			if(ext != NULL && strcmp(ext, ".c") == 0 && strncmp(ent->d_name, "test_", 5) != 0 && i < 256)
 			{	
 				printf("Found C File: %s\n", ent->d_name);				

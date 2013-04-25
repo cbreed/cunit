@@ -23,19 +23,20 @@
  * The write_test program generates test files (test_filename.c) from existing C files
  * and updates a Makefile to facilitate automated compilation.
  *
- * Version 0.5: Beta Stage 1
+ * Version 0.6: Beta Stage 2
  *
  **************************************************************************************/
  
- #include <stdio.h>
- #include <stdlib.h>
- #include <string.h>
- #include <stdbool.h>
- #include <dirent.h> 
- 
- #define VERSION 0.5
- #define COMMENT_BLOCK_WIDTH 56
-  
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <stdbool.h>
+#include <dirent.h> 
+
+#define VERSION 0.5
+#define COMMENT_BLOCK_WIDTH 56
+
+
 void write_testfile(char* filename)
 {
 

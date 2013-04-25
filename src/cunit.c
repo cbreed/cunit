@@ -1,3 +1,4 @@
+
 /**************************************************************************************
  * Connor Reed (cbreed2@ncsu.edu)
  * 
@@ -20,25 +21,41 @@
  *
  * The CUnit Library is meant to be a JUnit-like framework
  *   for C programs. 
- * Version 0.5: Beta Stage 1
+ * Version 0.6: Beta Stage 2
  *
  **************************************************************************************/
-
+/*!
+ *  \file Header File
+ *  \brief Header File
+ *  More.
+ */
 
 #include "cunit.h"
 
-char* g_testName = " ";
-int g_counter = 0; 
+/*!
+ * \var Global variable to keep track of the ID for each of the
+ * 	Nodes.
+ */
+int g_counter = 0;
 
+/*!
+ * \var Global variable to keep track of the size of the list
+ */
+int size = 0;
+
+/**
+ * Struct for a Node in the Linked List that
+ * 	represents a single test that was executed
+ */
 struct Node
 {
-  void* expected;
-  void* actual;
-  enum dataType type;
-  char* test_name;
-  bool pass;
-  int id;
-  struct Node* next;
+  void* expected; /* \var The expected value */
+  void* actual; /* \var The actual value we received */
+  enum dataType type; /* \var Enum used to denote the type for expected and actual */
+  char* test_name; /* \var A description or name of the test */
+  bool pass; /* \var Keeps track if this particualr test passed */
+  int id; /* \var A unique ID */
+  struct Node* next; /* \var A pointer to the next node in the list */
 };
 
  
@@ -110,6 +127,7 @@ static void _add(struct Node* new)
   {
     //Add the new Node to the head if it's empty.
     head = new;
+    size++;
     return;
   }   
     
@@ -120,7 +138,7 @@ static void _add(struct Node* new)
   }
   
   temp->next = new;
-
+  size++;
 }
 
 void cunit_test()
@@ -156,7 +174,46 @@ void printResults(bool verbose)
 {
     _dump_list(verbose);
 }
+void start_test()
+{
+  /* Begin by freeing the list */
+  struct Node* temp = head;
+  struct Node* next = NULL;
+  while(temp != NULL)
+  {
+    free(temp->expected);
+    free(temp->actual);
+    next = temp->next;
+    free(temp);
+    temp = next;
+  }
+  
+  head = NULL; //Set head to null so that we create a new list
+}
 
+int* end_test(int* num_elements, int* allpass)
+{
+  int* ret = malloc(size * sizeof(int)); //An array to hold the results
+  memset(ret, 0, size * sizeof(int));
+  struct Node* temp = head;
+  struct Node* next = NULL;
+  int pass = 1;
+  int i = 0;
+  while(temp != NULL)
+  {
+    if(temp->pass)
+      ret[i] = 1; //If the node passed saet it to one (a "true" value)
+    else
+      pass = 0;
+    i++;
+    temp = temp->next;
+  }
+
+  *num_elements = size;
+  *allpass = pass;
+  return ret;
+}
+  
 bool assertEquals(void* expected, void* actual, enum dataType type, char* testname)
 {
   bool pass = true;
