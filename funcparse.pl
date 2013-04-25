@@ -69,11 +69,11 @@ foreach $file(@ARGV){ #Loop through arguments as C source
                 print OUT "\t$name = dlsym(handle, \"$name\");\n";
         }
         print OUT "}\n";
-        print OUT "void tear_down()\n{\n\tdlclose(handle);\n}\n\n";
+        print OUT "void teardown()\n{\n\tdlclose(handle);\n}\n\n";
         foreach (@funcs){
                 $un=$_->[0];$signed=$_->[1];$type=$_->[2];$name=$_->[3];
                 print OUT "$un$signed" if $signed=='signed';
-                print OUT "$type test_$name(){\n";
+                print OUT "void test_$name(){\n";
                 print OUT "\tstartup();\n\t//TODO: TEST CODE HERE\n\tteardown();\n";
                 print OUT "}\n";
         }
