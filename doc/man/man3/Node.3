@@ -1,0 +1,72 @@
+.TH "Node" 3 "Mon Apr 29 2013" "Version 0.6" "CUnit" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+Node \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "void * \fBexpected\fP"
+.br
+.ti -1c
+.RI "void * \fBactual\fP"
+.br
+.ti -1c
+.RI "enum \fBdataType\fP \fBtype\fP"
+.br
+.ti -1c
+.RI "char * \fBtest_name\fP"
+.br
+.ti -1c
+.RI "bool \fBpass\fP"
+.br
+.ti -1c
+.RI "int \fBid\fP"
+.br
+.ti -1c
+.RI "struct \fBNode\fP * \fBnext\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Struct for a \fBNode\fP in the Linked List that represents a single test that was executed 
+.PP
+Definition at line 48 of file cunit\&.c\&.
+.SH "Field Documentation"
+.PP 
+.SS "void* actual"
+The expected value 
+.PP
+Definition at line 51 of file cunit\&.c\&.
+.SS "void* expected"
+
+.PP
+Definition at line 50 of file cunit\&.c\&.
+.SS "int id"
+Keeps track if this particualr test passed 
+.PP
+Definition at line 55 of file cunit\&.c\&.
+.SS "struct \fBNode\fP* next"
+A unique ID 
+.PP
+Definition at line 56 of file cunit\&.c\&.
+.SS "bool pass"
+A description or name of the test 
+.PP
+Definition at line 54 of file cunit\&.c\&.
+.SS "char* test_name"
+Enum used to denote the type for expected and actual 
+.PP
+Definition at line 53 of file cunit\&.c\&.
+.SS "enum \fBdataType\fP type"
+The actual value we received 
+.PP
+Definition at line 52 of file cunit\&.c\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CUnit from the source code\&.

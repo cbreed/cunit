@@ -23,7 +23,7 @@ foreach $file(@ARGV){ #Loop through arguments as C source
         print MAKE "\tgcc -Wall -std=c99 -c -fPIC $file.c -o $file.o\n";
         print MAKE "\tgcc $file.o -shared -o lib$file.so\n";
         print MAKE "\tgcc $file.o -o $file\n";
-        print MAKE "\tgcc -Wall -Wno-implicit-function-declaration -std=c99 test_$file.c -L$ENV{'HOME'}/lib/ -L./ -ldl -lcunit -l$file -o test_$file\n";
+        print MAKE "\tgcc -Wall -std=c99 test_$file.c -L$ENV{'HOME'}/lib/ -L./ -ldl -lcunit -o test_$file\n";
         print MAKE "clean:\n";
         print MAKE "\trm -f *.o\n\trm -f $file\n\trm -f lib$file.so\n\trm -f test_$file\n";
         

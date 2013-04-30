@@ -1,0 +1,239 @@
+.TH "/home/connor/csc230/tools/pub/cunit/src/cunit.h" 3 "Mon Apr 29 2013" "Version 0.6" "CUnit" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+/home/connor/csc230/tools/pub/cunit/src/cunit.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdio\&.h>\fP
+.br
+\fC#include <stdlib\&.h>\fP
+.br
+\fC#include <stdbool\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBdataType\fP { \fBtype_int\fP = 1, \fBtype_double\fP, \fBtype_char\fP, \fBtype_charpointer\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBcunit_test\fP ()"
+.br
+.ti -1c
+.RI "bool \fBassertEquals\fP (void *expected, void *actual, enum \fBdataType\fP type, char *testname)"
+.br
+.ti -1c
+.RI "bool \fBassertEqualsInt\fP (int expected, int actual, char *testname)"
+.br
+.ti -1c
+.RI "bool \fBassertEqualsDouble\fP (double expected, double actual, char *testname)"
+.br
+.ti -1c
+.RI "bool \fBassertEqualsChar\fP (char expected, char actual, char *testname)"
+.br
+.ti -1c
+.RI "bool \fBassertEqualsCharP\fP (char *expected, char *actual, char *testname)"
+.br
+.ti -1c
+.RI "void \fBprintResults\fP (bool verbose)"
+.br
+.ti -1c
+.RI "void \fBstart_test\fP ()"
+.br
+.ti -1c
+.RI "int * \fBend_test\fP (int *num_elements, int *allpass)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+\fBAuthor:\fP
+.RS 4
+Connor Reed (cbreed2@ncsu.edu) 
+.RE
+.PP
+\fBVersion:\fP
+.RS 4
+0\&.6 Beta Stage 2
+.RE
+.PP
+.SH "LICENSE"
+.PP
+The CUnit Library is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version\&.
+.PP
+The CUnit Library is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE\&. See the GNU General Public License for more details\&.
+.PP
+You should have received a copy of the GNU General Public License along with the CUnit Library\&. If not, see http://www.gnu.org/licenses/\&.
+.PP
+Copyright 2012
+.SH "DESCRIPTION"
+.PP
+The CUnit Library is meant to be a JUnit-like framework for C programs\&. This file is part of the CUnit Library\&. 
+.PP
+Definition in file \fBcunit\&.h\fP\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBdataType\fP"
+Enumeration for assertEquals that indicates the type 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fItype_int \fP\fP
+A int 
+.TP
+\fB\fItype_double \fP\fP
+A double 
+.TP
+\fB\fItype_char \fP\fP
+A char 
+.TP
+\fB\fItype_charpointer \fP\fP
+A char* 
+.PP
+Definition at line 41 of file cunit\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "bool assertEquals (void *expected, void *actual, enum \fBdataType\fPtype, char *testname)"
+The main logic behind the library\&. Preforms the equality test and adds the result node to the list\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIexpected\fP Pointer to the expected value 
+.br
+\fIactual\fP Pointer to the actual value 
+.br
+\fItype\fP An enumeration indcating the type 
+.br
+\fItestname\fP A descriptive name for the test
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Indicates if the test passed (true if passed) 
+.RE
+.PP
+
+.PP
+Definition at line 265 of file cunit\&.c\&.
+.SS "bool assertEqualsChar (charexpected, charactual, char *testname)"
+Wrapper function for the assertEquals method for char's
+.PP
+\fBParameters:\fP
+.RS 4
+\fIexpected\fP The expected value 
+.br
+\fIactual\fP The actual value 
+.br
+\fItestname\fP A descriptive name for the test
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Indicates if the test passed (true if passed) 
+.RE
+.PP
+
+.PP
+Definition at line 382 of file cunit\&.c\&.
+.SS "bool assertEqualsCharP (char *expected, char *actual, char *testname)"
+Wrapper function for the assertEquals method for char*'s
+.PP
+\fBParameters:\fP
+.RS 4
+\fIexpected\fP The expected value 
+.br
+\fIactual\fP The actual value 
+.br
+\fItestname\fP A descriptive name for the test
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Indicates if the test passed (true if passed) 
+.RE
+.PP
+
+.PP
+Definition at line 409 of file cunit\&.c\&.
+.SS "bool assertEqualsDouble (doubleexpected, doubleactual, char *testname)"
+Wrapper function for the assertEquals method for double's
+.PP
+\fBParameters:\fP
+.RS 4
+\fIexpected\fP The expected value 
+.br
+\fIactual\fP The actual value 
+.br
+\fItestname\fP A descriptive name for the test
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Indicates if the test passed (true if passed) 
+.RE
+.PP
+
+.PP
+Definition at line 357 of file cunit\&.c\&.
+.SS "bool assertEqualsInt (intexpected, intactual, char *testname)"
+Wrapper function for the assertEquals method for int's
+.PP
+\fBParameters:\fP
+.RS 4
+\fIexpected\fP The expected value 
+.br
+\fIactual\fP The actual value 
+.br
+\fItestname\fP A descriptive name for the test
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Indicates if the test passed (true if passed) 
+.RE
+.PP
+
+.PP
+Definition at line 327 of file cunit\&.c\&.
+.SS "void cunit_test ()"
+External function that preforms a Sanity test on the library 
+.PP
+Definition at line 166 of file cunit\&.c\&.
+.SS "int* end_test (int *num_elements, int *allpass)"
+Reads the contents of the list and creates a dynamically allocated array of int's that represents the result of each test (1 is a pass)
+.PP
+\fBParameters:\fP
+.RS 4
+\fInum_elements\fP Return buffer that will be filled with the number of elements in the array 
+.br
+\fIallpass\fP Return buffer that will be 1 if all the tests pass 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+A pointer to an array of int's that contains the results of each test\&. This will need to be freed\&. 
+.RE
+.PP
+
+.PP
+Definition at line 231 of file cunit\&.c\&.
+.SS "void printResults (boolverbose)"
+Calls _dump_list and passes verbose on\&. 
+.PP
+Definition at line 197 of file cunit\&.c\&.
+.SS "void start_test ()"
+Clears out the list and starts a new test session 
+.PP
+Definition at line 205 of file cunit\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for CUnit from the source code\&.

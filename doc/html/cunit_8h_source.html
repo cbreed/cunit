@@ -8,6 +8,13 @@
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
+<link href="navtree.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="resize.js"></script>
+<script type="text/javascript" src="navtree.js"></script>
+<script type="text/javascript">
+  $(document).ready(initResizable);
+  $(window).load(resizeHeight);
+</script>
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/search.js"></script>
 <script type="text/javascript">
@@ -62,14 +69,30 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div id="navrow2" class="tabs2">
     <ul class="tablist">
       <li><a href="files.html"><span>File&#160;List</span></a></li>
+      <li><a href="globals.html"><span>Globals</span></a></li>
     </ul>
   </div>
+</div><!-- top -->
+<div id="side-nav" class="ui-resizable side-nav-resizable">
+  <div id="nav-tree">
+    <div id="nav-tree-contents">
+      <div id="nav-sync" class="sync"></div>
+    </div>
+  </div>
+  <div id="splitbar" style="-moz-user-select:none;" 
+       class="ui-resizable-handle">
+  </div>
+</div>
+<script type="text/javascript">
+$(document).ready(function(){initNavTree('cunit_8h_source.html','');});
+</script>
+<div id="doc-content">
 <!-- window showing the filter options -->
 <div id="MSearchSelectWindow"
      onmouseover="return searchBox.OnSearchSelectShow()"
      onmouseout="return searchBox.OnSearchSelectHide()"
      onkeydown="return searchBox.OnSearchSelectKey(event)">
-<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a></div>
+<a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(0)"><span class="SelectionMark">&#160;</span>All</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(1)"><span class="SelectionMark">&#160;</span>Data Structures</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(2)"><span class="SelectionMark">&#160;</span>Files</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(3)"><span class="SelectionMark">&#160;</span>Functions</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(4)"><span class="SelectionMark">&#160;</span>Variables</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(5)"><span class="SelectionMark">&#160;</span>Enumerations</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(6)"><span class="SelectionMark">&#160;</span>Enumerator</a><a class="SelectItem" href="javascript:void(0)" onclick="searchBox.OnSelectItem(7)"><span class="SelectionMark">&#160;</span>Macros</a></div>
 
 <!-- iframe showing the search results (closed by default) -->
 <div id="MSearchResultsWindow">
@@ -78,70 +101,56 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
 </iframe>
 </div>
 
-<div id="nav-path" class="navpath">
-  <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li>  </ul>
-</div>
-</div><!-- top -->
 <div class="header">
   <div class="headertitle">
 <div class="title">cunit.h</div>  </div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
-<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="comment">/**************************************************************************************</span></div>
-<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="comment"> * Connor Reed (cbreed2@ncsu.edu)</span></div>
-<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="comment"> * </span></div>
-<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment"> * This file is part of the CUnit Library.</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="comment"> *  </span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="comment"> * The CUnit Library is free software: you can redistribute it and/or modify</span></div>
-<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="comment"> *   it under the terms of the GNU General Public License as published by</span></div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="comment"> *   the Free Software Foundation, either version 3 of the License, or</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="comment"> *   (at your option) any later version.</span></div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="comment"> *  The CUnit Library is distributed in the hope that it will be useful,</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="comment"> *   but WITHOUT ANY WARRANTY; without even the implied warranty of</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="comment"> *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="comment"> *   GNU General Public License for more details.</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="comment"></span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="comment"> *   You should have received a copy of the GNU General Public License</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="comment"> *   along with the CUnit Library.  If not, see &lt;http://www.gnu.org/licenses/&gt;.</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="comment"> * </span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="comment"> *  Copyright 2012</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="comment"> * The CUnit Library is meant to be a JUnit-like framework</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="comment"> *   for C programs. </span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="comment"> * Version 0.6: Beta Stage 2</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="comment"> *</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="comment"> **************************************************************************************/</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160; </div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#ifndef _CUINT_H_</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define _CUINT_H_</span></div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor"></span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">  #include &lt;stdio.h&gt;</span></div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">  #include &lt;stdlib.h&gt;</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">  #include &lt;stdbool.h&gt;</span></div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">  #include &lt;string.h&gt;</span></div>
-<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;  </div>
-<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;   <span class="comment">//Variable Declarations:</span></div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;  <span class="keyword">enum</span> dataType { type_int = 1, type_double, type_char, type_charpointer } ;</div>
-<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;  <span class="comment">//Function Prototypes:    </span></div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;  <span class="keyword">extern</span> <span class="keywordtype">void</span> cunit_test();</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160;  <span class="keyword">extern</span> <span class="keywordtype">bool</span> assertEquals(<span class="keywordtype">void</span>* expected, <span class="keywordtype">void</span>* actual, <span class="keyword">enum</span> dataType type, <span class="keywordtype">char</span>* testname);</div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;  <span class="keyword">extern</span> <span class="keywordtype">bool</span> assertEqualsInt(<span class="keywordtype">int</span> expected, <span class="keywordtype">int</span> actual, <span class="keywordtype">char</span>* testname);</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;  <span class="keyword">extern</span> <span class="keywordtype">bool</span> assertEqualsDouble(<span class="keywordtype">double</span> expected, <span class="keywordtype">double</span> actual, <span class="keywordtype">char</span>* testname);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160;  <span class="keyword">extern</span> <span class="keywordtype">bool</span> assertEqualsChar(<span class="keywordtype">char</span> expected, <span class="keywordtype">char</span> actual, <span class="keywordtype">char</span>* testname);</div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;  <span class="keyword">extern</span> <span class="keywordtype">bool</span> assertEqualsCharP(<span class="keywordtype">char</span>* expected, <span class="keywordtype">char</span>* actual, <span class="keywordtype">char</span>* testname);</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;  <span class="keyword">extern</span> <span class="keywordtype">void</span> printResults(<span class="keywordtype">bool</span> verbose);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  <span class="keyword">extern</span> <span class="keywordtype">int</span>* end_test(<span class="keywordtype">int</span>* num_elements, <span class="keywordtype">int</span>* allpass);</div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="preprocessor">#endif</span></div>
+<a href="cunit_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;</div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#ifndef _CUINT_H_</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor"></span><span class="preprocessor">#define _CUINT_H_</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor"></span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">  #include &lt;stdio.h&gt;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">  #include &lt;stdlib.h&gt;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">  #include &lt;stdbool.h&gt;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">  #include &lt;string.h&gt;</span></div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;  </div>
+<div class="line"><a name="l00041"></a><span class="lineno"><a class="code" href="cunit_8h.html#a617ddb88ebf58e2f0add63ae88a9f705">   41</a></span>&#160;  <span class="keyword">enum</span> <a class="code" href="cunit_8h.html#a617ddb88ebf58e2f0add63ae88a9f705">dataType</a> </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;  { </div>
+<div class="line"><a name="l00044"></a><span class="lineno"><a class="code" href="cunit_8h.html#a617ddb88ebf58e2f0add63ae88a9f705ab14e860e833d1d6c5681f31a3748db0d">   44</a></span>&#160;      <a class="code" href="cunit_8h.html#a617ddb88ebf58e2f0add63ae88a9f705ab14e860e833d1d6c5681f31a3748db0d">type_int</a> = 1, </div>
+<div class="line"><a name="l00046"></a><span class="lineno"><a class="code" href="cunit_8h.html#a617ddb88ebf58e2f0add63ae88a9f705aa31664d59545c000def9cea2aa564f6f">   46</a></span>&#160;      <a class="code" href="cunit_8h.html#a617ddb88ebf58e2f0add63ae88a9f705aa31664d59545c000def9cea2aa564f6f">type_double</a>, </div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="code" href="cunit_8h.html#a617ddb88ebf58e2f0add63ae88a9f705ac80d8e27c4c7bede4a899ef278064c23">   48</a></span>&#160;      <a class="code" href="cunit_8h.html#a617ddb88ebf58e2f0add63ae88a9f705ac80d8e27c4c7bede4a899ef278064c23">type_char</a>, </div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="code" href="cunit_8h.html#a617ddb88ebf58e2f0add63ae88a9f705a6c7736485402c8a8b17ca2732702c34f">   50</a></span>&#160;      <a class="code" href="cunit_8h.html#a617ddb88ebf58e2f0add63ae88a9f705a6c7736485402c8a8b17ca2732702c34f">type_charpointer</a> </div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160;  };</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;  </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;  <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="cunit_8c.html#a7b983819b752f085fb8073d7f381ee2e">cunit_test</a>();</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;  </div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;  <span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="cunit_8c.html#a42bfed33fdd49e9fd330b817b280327c">assertEquals</a>(<span class="keywordtype">void</span>* <a class="code" href="struct_node.html#a61a9460560c0f02cb4e58157d51db0bf">expected</a>, <span class="keywordtype">void</span>* <a class="code" href="struct_node.html#a4eff1f1838896a792dae71dcc43ca50c">actual</a>, <span class="keyword">enum</span> <a class="code" href="cunit_8h.html#a617ddb88ebf58e2f0add63ae88a9f705">dataType</a> <a class="code" href="struct_node.html#a6e3def444d6680408fd3ce31350d852c">type</a>, <span class="keywordtype">char</span>* testname);</div>
+<div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;  </div>
+<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;  <span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="cunit_8c.html#a216811783943d447b6fcc20cc3630006">assertEqualsInt</a>(<span class="keywordtype">int</span> <a class="code" href="struct_node.html#a61a9460560c0f02cb4e58157d51db0bf">expected</a>, <span class="keywordtype">int</span> <a class="code" href="struct_node.html#a4eff1f1838896a792dae71dcc43ca50c">actual</a>, <span class="keywordtype">char</span>* testname);</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;  </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;  <span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="cunit_8c.html#aa789e8e0e0a1bd476a997f0905f6f48d">assertEqualsDouble</a>(<span class="keywordtype">double</span> <a class="code" href="struct_node.html#a61a9460560c0f02cb4e58157d51db0bf">expected</a>, <span class="keywordtype">double</span> <a class="code" href="struct_node.html#a4eff1f1838896a792dae71dcc43ca50c">actual</a>, <span class="keywordtype">char</span>* testname);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;  </div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;  <span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="cunit_8c.html#abdceedfb5f96c77c56de6367a4d905c9">assertEqualsChar</a>(<span class="keywordtype">char</span> <a class="code" href="struct_node.html#a61a9460560c0f02cb4e58157d51db0bf">expected</a>, <span class="keywordtype">char</span> <a class="code" href="struct_node.html#a4eff1f1838896a792dae71dcc43ca50c">actual</a>, <span class="keywordtype">char</span>* testname);</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;  </div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;  <span class="keyword">extern</span> <span class="keywordtype">bool</span> <a class="code" href="cunit_8c.html#a3fea0764e4b00bb1674cf649e8ecdcc4">assertEqualsCharP</a>(<span class="keywordtype">char</span>* <a class="code" href="struct_node.html#a61a9460560c0f02cb4e58157d51db0bf">expected</a>, <span class="keywordtype">char</span>* <a class="code" href="struct_node.html#a4eff1f1838896a792dae71dcc43ca50c">actual</a>, <span class="keywordtype">char</span>* testname);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160;  </div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;  <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="cunit_8c.html#a65e31bbf548751ef3661ad8481a022d1">printResults</a>(<span class="keywordtype">bool</span> verbose);</div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;  </div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;  <span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code" href="cunit_8c.html#a3af2ffc46c9ac06c9972dc521288afa0">start_test</a>();</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;  </div>
+<div class="line"><a name="l00135"></a><span class="lineno">  135</span>&#160;  <span class="keyword">extern</span> <span class="keywordtype">int</span>* <a class="code" href="cunit_8c.html#afa37db57b2c689ebba86ce1f9e942765">end_test</a>(<span class="keywordtype">int</span>* num_elements, <span class="keywordtype">int</span>* allpass);</div>
+<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="preprocessor">#endif</span></div>
 </div><!-- fragment --></div><!-- contents -->
+</div><!-- doc-content -->
 <!-- start footer part -->
-<hr class="footer"/><address class="footer"><small>
-Generated by &#160;<a href="http://www.doxygen.org/index.html">
-<img class="footer" src="doxygen.png" alt="doxygen"/>
-</a> 1.8.3.1
-</small></address>
+<div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
+  <ul>
+    <li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="cunit_8h.html">cunit.h</a></li>
+    <li class="footer">Generated on Mon Apr 29 2013 17:57:48 for CUnit by
+    <a href="http://www.doxygen.org/index.html">
+    <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.3.1 </li>
+  </ul>
+</div>
 </body>
 </html>

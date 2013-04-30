@@ -1,0 +1,279 @@
+\hypertarget{cunit_8h}{\section{/home/connor/csc230/tools/pub/cunit/src/cunit.h File Reference}
+\label{cunit_8h}\index{/home/connor/csc230/tools/pub/cunit/src/cunit.\-h@{/home/connor/csc230/tools/pub/cunit/src/cunit.\-h}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdbool.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{cunit_8h_a617ddb88ebf58e2f0add63ae88a9f705}{data\-Type} \{ \hyperlink{cunit_8h_a617ddb88ebf58e2f0add63ae88a9f705ab14e860e833d1d6c5681f31a3748db0d}{type\-\_\-int} = 1, 
+\hyperlink{cunit_8h_a617ddb88ebf58e2f0add63ae88a9f705aa31664d59545c000def9cea2aa564f6f}{type\-\_\-double}, 
+\hyperlink{cunit_8h_a617ddb88ebf58e2f0add63ae88a9f705ac80d8e27c4c7bede4a899ef278064c23}{type\-\_\-char}, 
+\hyperlink{cunit_8h_a617ddb88ebf58e2f0add63ae88a9f705a6c7736485402c8a8b17ca2732702c34f}{type\-\_\-charpointer}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{cunit_8h_a7b983819b752f085fb8073d7f381ee2e}{cunit\-\_\-test} ()
+\item 
+bool \hyperlink{cunit_8h_a42bfed33fdd49e9fd330b817b280327c}{assert\-Equals} (void $\ast$expected, void $\ast$actual, enum \hyperlink{cunit_8h_a617ddb88ebf58e2f0add63ae88a9f705}{data\-Type} type, char $\ast$testname)
+\item 
+bool \hyperlink{cunit_8h_a216811783943d447b6fcc20cc3630006}{assert\-Equals\-Int} (int expected, int actual, char $\ast$testname)
+\item 
+bool \hyperlink{cunit_8h_aa789e8e0e0a1bd476a997f0905f6f48d}{assert\-Equals\-Double} (double expected, double actual, char $\ast$testname)
+\item 
+bool \hyperlink{cunit_8h_abdceedfb5f96c77c56de6367a4d905c9}{assert\-Equals\-Char} (char expected, char actual, char $\ast$testname)
+\item 
+bool \hyperlink{cunit_8h_a3fea0764e4b00bb1674cf649e8ecdcc4}{assert\-Equals\-Char\-P} (char $\ast$expected, char $\ast$actual, char $\ast$testname)
+\item 
+void \hyperlink{cunit_8h_a65e31bbf548751ef3661ad8481a022d1}{print\-Results} (bool verbose)
+\item 
+void \hyperlink{cunit_8h_a3af2ffc46c9ac06c9972dc521288afa0}{start\-\_\-test} ()
+\item 
+int $\ast$ \hyperlink{cunit_8h_afa37db57b2c689ebba86ce1f9e942765}{end\-\_\-test} (int $\ast$num\-\_\-elements, int $\ast$allpass)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyAuthor}{Author}
+Connor Reed (\href{mailto:cbreed2@ncsu.edu}{\tt cbreed2@ncsu.\-edu}) 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\-6 Beta Stage 2
+\end{DoxyVersion}
+\hypertarget{cunit_8h_LICENSE}{}\subsection{L\-I\-C\-E\-N\-S\-E}\label{cunit_8h_LICENSE}
+The C\-Unit Library is free software\-: you can redistribute it and/or modify it under the terms of the G\-N\-U General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
+
+The C\-Unit Library is distributed in the hope that it will be useful, but W\-I\-T\-H\-O\-U\-T A\-N\-Y W\-A\-R\-R\-A\-N\-T\-Y; without even the implied warranty of M\-E\-R\-C\-H\-A\-N\-T\-A\-B\-I\-L\-I\-T\-Y or F\-I\-T\-N\-E\-S\-S F\-O\-R A P\-A\-R\-T\-I\-C\-U\-L\-A\-R P\-U\-R\-P\-O\-S\-E. See the G\-N\-U General Public License for more details.
+
+You should have received a copy of the G\-N\-U General Public License along with the C\-Unit Library. If not, see \href{http://www.gnu.org/licenses/}{\tt http\-://www.\-gnu.\-org/licenses/}.
+
+Copyright 2012\hypertarget{cunit_8h_DESCRIPTION}{}\subsection{D\-E\-S\-C\-R\-I\-P\-T\-I\-O\-N}\label{cunit_8h_DESCRIPTION}
+The C\-Unit Library is meant to be a J\-Unit-\/like framework for C programs. This file is part of the C\-Unit Library. 
+
+Definition in file \hyperlink{cunit_8h_source}{cunit.\-h}.
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{cunit_8h_a617ddb88ebf58e2f0add63ae88a9f705}{\index{cunit.\-h@{cunit.\-h}!data\-Type@{data\-Type}}
+\index{data\-Type@{data\-Type}!cunit.h@{cunit.\-h}}
+\subsubsection[{data\-Type}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf data\-Type}}}\label{cunit_8h_a617ddb88ebf58e2f0add63ae88a9f705}
+Enumeration for assert\-Equals that indicates the type \begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{type\-\_\-int@{type\-\_\-int}!cunit.\-h@{cunit.\-h}}\index{cunit.\-h@{cunit.\-h}!type\-\_\-int@{type\-\_\-int}}\item[{\em 
+\hypertarget{cunit_8h_a617ddb88ebf58e2f0add63ae88a9f705ab14e860e833d1d6c5681f31a3748db0d}{type\-\_\-int}\label{cunit_8h_a617ddb88ebf58e2f0add63ae88a9f705ab14e860e833d1d6c5681f31a3748db0d}
+}]A int \index{type\-\_\-double@{type\-\_\-double}!cunit.\-h@{cunit.\-h}}\index{cunit.\-h@{cunit.\-h}!type\-\_\-double@{type\-\_\-double}}\item[{\em 
+\hypertarget{cunit_8h_a617ddb88ebf58e2f0add63ae88a9f705aa31664d59545c000def9cea2aa564f6f}{type\-\_\-double}\label{cunit_8h_a617ddb88ebf58e2f0add63ae88a9f705aa31664d59545c000def9cea2aa564f6f}
+}]A double \index{type\-\_\-char@{type\-\_\-char}!cunit.\-h@{cunit.\-h}}\index{cunit.\-h@{cunit.\-h}!type\-\_\-char@{type\-\_\-char}}\item[{\em 
+\hypertarget{cunit_8h_a617ddb88ebf58e2f0add63ae88a9f705ac80d8e27c4c7bede4a899ef278064c23}{type\-\_\-char}\label{cunit_8h_a617ddb88ebf58e2f0add63ae88a9f705ac80d8e27c4c7bede4a899ef278064c23}
+}]A char \index{type\-\_\-charpointer@{type\-\_\-charpointer}!cunit.\-h@{cunit.\-h}}\index{cunit.\-h@{cunit.\-h}!type\-\_\-charpointer@{type\-\_\-charpointer}}\item[{\em 
+\hypertarget{cunit_8h_a617ddb88ebf58e2f0add63ae88a9f705a6c7736485402c8a8b17ca2732702c34f}{type\-\_\-charpointer}\label{cunit_8h_a617ddb88ebf58e2f0add63ae88a9f705a6c7736485402c8a8b17ca2732702c34f}
+}]A char$\ast$ \end{description}
+\end{Desc}
+
+
+Definition at line 41 of file cunit.\-h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{cunit_8h_a42bfed33fdd49e9fd330b817b280327c}{\index{cunit.\-h@{cunit.\-h}!assert\-Equals@{assert\-Equals}}
+\index{assert\-Equals@{assert\-Equals}!cunit.h@{cunit.\-h}}
+\subsubsection[{assert\-Equals}]{\setlength{\rightskip}{0pt plus 5cm}bool assert\-Equals (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{expected, }
+\item[{void $\ast$}]{actual, }
+\item[{enum {\bf data\-Type}}]{type, }
+\item[{char $\ast$}]{testname}
+\end{DoxyParamCaption}
+)}}\label{cunit_8h_a42bfed33fdd49e9fd330b817b280327c}
+The main logic behind the library. Preforms the equality test and adds the result node to the list.
+
+
+\begin{DoxyParams}{Parameters}
+{\em expected} & Pointer to the expected value \\
+\hline
+{\em actual} & Pointer to the actual value \\
+\hline
+{\em type} & An enumeration indcating the type \\
+\hline
+{\em testname} & A descriptive name for the test\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Indicates if the test passed (true if passed) 
+\end{DoxyReturn}
+
+
+Definition at line 265 of file cunit.\-c.
+
+\hypertarget{cunit_8h_abdceedfb5f96c77c56de6367a4d905c9}{\index{cunit.\-h@{cunit.\-h}!assert\-Equals\-Char@{assert\-Equals\-Char}}
+\index{assert\-Equals\-Char@{assert\-Equals\-Char}!cunit.h@{cunit.\-h}}
+\subsubsection[{assert\-Equals\-Char}]{\setlength{\rightskip}{0pt plus 5cm}bool assert\-Equals\-Char (
+\begin{DoxyParamCaption}
+\item[{char}]{expected, }
+\item[{char}]{actual, }
+\item[{char $\ast$}]{testname}
+\end{DoxyParamCaption}
+)}}\label{cunit_8h_abdceedfb5f96c77c56de6367a4d905c9}
+Wrapper function for the assert\-Equals method for char's
+
+
+\begin{DoxyParams}{Parameters}
+{\em expected} & The expected value \\
+\hline
+{\em actual} & The actual value \\
+\hline
+{\em testname} & A descriptive name for the test\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Indicates if the test passed (true if passed) 
+\end{DoxyReturn}
+
+
+Definition at line 382 of file cunit.\-c.
+
+\hypertarget{cunit_8h_a3fea0764e4b00bb1674cf649e8ecdcc4}{\index{cunit.\-h@{cunit.\-h}!assert\-Equals\-Char\-P@{assert\-Equals\-Char\-P}}
+\index{assert\-Equals\-Char\-P@{assert\-Equals\-Char\-P}!cunit.h@{cunit.\-h}}
+\subsubsection[{assert\-Equals\-Char\-P}]{\setlength{\rightskip}{0pt plus 5cm}bool assert\-Equals\-Char\-P (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{expected, }
+\item[{char $\ast$}]{actual, }
+\item[{char $\ast$}]{testname}
+\end{DoxyParamCaption}
+)}}\label{cunit_8h_a3fea0764e4b00bb1674cf649e8ecdcc4}
+Wrapper function for the assert\-Equals method for char$\ast$'s
+
+
+\begin{DoxyParams}{Parameters}
+{\em expected} & The expected value \\
+\hline
+{\em actual} & The actual value \\
+\hline
+{\em testname} & A descriptive name for the test\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Indicates if the test passed (true if passed) 
+\end{DoxyReturn}
+
+
+Definition at line 409 of file cunit.\-c.
+
+\hypertarget{cunit_8h_aa789e8e0e0a1bd476a997f0905f6f48d}{\index{cunit.\-h@{cunit.\-h}!assert\-Equals\-Double@{assert\-Equals\-Double}}
+\index{assert\-Equals\-Double@{assert\-Equals\-Double}!cunit.h@{cunit.\-h}}
+\subsubsection[{assert\-Equals\-Double}]{\setlength{\rightskip}{0pt plus 5cm}bool assert\-Equals\-Double (
+\begin{DoxyParamCaption}
+\item[{double}]{expected, }
+\item[{double}]{actual, }
+\item[{char $\ast$}]{testname}
+\end{DoxyParamCaption}
+)}}\label{cunit_8h_aa789e8e0e0a1bd476a997f0905f6f48d}
+Wrapper function for the assert\-Equals method for double's
+
+
+\begin{DoxyParams}{Parameters}
+{\em expected} & The expected value \\
+\hline
+{\em actual} & The actual value \\
+\hline
+{\em testname} & A descriptive name for the test\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Indicates if the test passed (true if passed) 
+\end{DoxyReturn}
+
+
+Definition at line 357 of file cunit.\-c.
+
+\hypertarget{cunit_8h_a216811783943d447b6fcc20cc3630006}{\index{cunit.\-h@{cunit.\-h}!assert\-Equals\-Int@{assert\-Equals\-Int}}
+\index{assert\-Equals\-Int@{assert\-Equals\-Int}!cunit.h@{cunit.\-h}}
+\subsubsection[{assert\-Equals\-Int}]{\setlength{\rightskip}{0pt plus 5cm}bool assert\-Equals\-Int (
+\begin{DoxyParamCaption}
+\item[{int}]{expected, }
+\item[{int}]{actual, }
+\item[{char $\ast$}]{testname}
+\end{DoxyParamCaption}
+)}}\label{cunit_8h_a216811783943d447b6fcc20cc3630006}
+Wrapper function for the assert\-Equals method for int's
+
+
+\begin{DoxyParams}{Parameters}
+{\em expected} & The expected value \\
+\hline
+{\em actual} & The actual value \\
+\hline
+{\em testname} & A descriptive name for the test\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Indicates if the test passed (true if passed) 
+\end{DoxyReturn}
+
+
+Definition at line 327 of file cunit.\-c.
+
+\hypertarget{cunit_8h_a7b983819b752f085fb8073d7f381ee2e}{\index{cunit.\-h@{cunit.\-h}!cunit\-\_\-test@{cunit\-\_\-test}}
+\index{cunit\-\_\-test@{cunit\-\_\-test}!cunit.h@{cunit.\-h}}
+\subsubsection[{cunit\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void cunit\-\_\-test (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{cunit_8h_a7b983819b752f085fb8073d7f381ee2e}
+External function that preforms a Sanity test on the library 
+
+Definition at line 166 of file cunit.\-c.
+
+\hypertarget{cunit_8h_afa37db57b2c689ebba86ce1f9e942765}{\index{cunit.\-h@{cunit.\-h}!end\-\_\-test@{end\-\_\-test}}
+\index{end\-\_\-test@{end\-\_\-test}!cunit.h@{cunit.\-h}}
+\subsubsection[{end\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}int$\ast$ end\-\_\-test (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{num\-\_\-elements, }
+\item[{int $\ast$}]{allpass}
+\end{DoxyParamCaption}
+)}}\label{cunit_8h_afa37db57b2c689ebba86ce1f9e942765}
+Reads the contents of the list and creates a dynamically allocated array of int's that represents the result of each test (1 is a pass)
+
+
+\begin{DoxyParams}{Parameters}
+{\em num\-\_\-elements} & Return buffer that will be filled with the number of elements in the array \\
+\hline
+{\em allpass} & Return buffer that will be 1 if all the tests pass \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A pointer to an array of int's that contains the results of each test. This will need to be freed. 
+\end{DoxyReturn}
+
+
+Definition at line 231 of file cunit.\-c.
+
+\hypertarget{cunit_8h_a65e31bbf548751ef3661ad8481a022d1}{\index{cunit.\-h@{cunit.\-h}!print\-Results@{print\-Results}}
+\index{print\-Results@{print\-Results}!cunit.h@{cunit.\-h}}
+\subsubsection[{print\-Results}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Results (
+\begin{DoxyParamCaption}
+\item[{bool}]{verbose}
+\end{DoxyParamCaption}
+)}}\label{cunit_8h_a65e31bbf548751ef3661ad8481a022d1}
+Calls \-\_\-dump\-\_\-list and passes verbose on. 
+
+Definition at line 197 of file cunit.\-c.
+
+\hypertarget{cunit_8h_a3af2ffc46c9ac06c9972dc521288afa0}{\index{cunit.\-h@{cunit.\-h}!start\-\_\-test@{start\-\_\-test}}
+\index{start\-\_\-test@{start\-\_\-test}!cunit.h@{cunit.\-h}}
+\subsubsection[{start\-\_\-test}]{\setlength{\rightskip}{0pt plus 5cm}void start\-\_\-test (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{cunit_8h_a3af2ffc46c9ac06c9972dc521288afa0}
+Clears out the list and starts a new test session 
+
+Definition at line 205 of file cunit.\-c.
+
