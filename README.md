@@ -66,14 +66,14 @@ USAGE:
 	      
 	  The C file will contain:
 	  
-	      #include <stdio.h>
+	#include <stdio.h>
         #include <stdlib.h>
         #include "cunit.h"
 
         int main(int argc, char** argv)
         {
 	      
-	      }
+	}
 	      
 	If you use the funcparse.pl script instead, the Makefile will look like:
 	
